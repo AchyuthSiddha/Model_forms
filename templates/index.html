@@ -12,16 +12,17 @@
     
     <div class="container" align="center">
         {% if submitted %}
-           <h1>Thank for {{name}} filling your information</h1>
-           <h2>Continue the next student information</h2>
+           <h1>Thank for {{name}} for provide your feedback</h1>
+           <!-- <h2>Continue the next student information</h2> -->
         {% else %}
         <h1>Student Information</h1>
-        {% endif %}
         <form method="post">
             {{form.as_p}}
             {% csrf_token %}
-            <input type="submit" name="" class="btn btn-primary" value="submit">
+            <input type="submit" name="" class="btn btn-primary" value="Feedback">
         </form>
+        {% endif %}
+       
     </div>
 </body>
 </html>

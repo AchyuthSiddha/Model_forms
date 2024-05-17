@@ -1,10 +1,18 @@
+from typing import Any
 from django import forms
 
 class StudentForm(forms.Form):
-    Rollno=forms.IntegerField()
-    Name=forms.CharField()
-    Smarks=forms.IntegerField()
+    name=forms.CharField()
+    email=forms.EmailField()
+    address=forms.CharField(widget=forms.Textarea)
 
+
+    def clean_name(self):
+        print("validating name field")
+        inputname=self.cleaned_data['name']
+        if len(inputname) < 4:
+            raise forms.ValidationError("Atleast four character should be valid otherwise its throw an error")
+        return inputname
 
 
 
